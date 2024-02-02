@@ -2,10 +2,12 @@ import { Project } from "@/types/Home";
 import Image from "next/image";
 import Link from "next/link";
 import { IoLogoJavascript } from "react-icons/io5";
+import { IconType } from 'react-icons';
 
 
 interface ProjectsProps {
   projects: Project[];
+  icon?: IconType;
 }
 
 
@@ -26,10 +28,10 @@ export const Projects = ({projects}: ProjectsProps) => {
                 height={300}
                 className="object-cover rounded-2xl h-[18.75rem] mb-4 transition-all duration-200 transform hover:scale-105"
                 />
-                <span clas>{name}</span>
+                <span>{name}</span>
                 <div className="flex gap-2">
                   {tech?.map((icon, index) => (
-                    <span key={icon + index}>{icon}</span>
+                    <span key={index}>{icon}</span>
                   ))}
                 </div>
                 <div className="bg-indigo-500 rounded-xl w-14 h-14 text-center flex justify-center items-center text-3xl absolute bottom-[1.25rem] -right-[1.25rem]">
