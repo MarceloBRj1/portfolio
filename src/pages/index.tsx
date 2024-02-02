@@ -1,51 +1,88 @@
-import { AboutMe } from '@/components/Home/AboutMe';
-import { Projects } from '@/components/Home/Projects';
-import { Project, AboutMe as TAboutMe } from '@/types/Home';
-import { GetStaticProps } from 'next';
-import Head from 'next/head';
+import AboutMe from "@/components/Home/AboutMe";
+import { Projects } from "@/components/Home/Projects";
+import Head from "next/head";
+import { IoLogoJavascript } from "react-icons/io5";
+import { SiTailwindcss, SiMongodb  } from "react-icons/si";
+import { TbBrandNextjs } from "react-icons/tb";
 
-interface HomeProps {
-  home: {
-    aboutMe: TAboutMe;
-    projects: Project[];
+import { SiTypescript } from "react-icons/si";
+
+
+
+
+interface Project {
+  slug: string;
+  name: string;
+  image: {
+    url: string;
+    alt: string;
   };
+  tech?: any[];
 }
 
-const Home = ({ home }: HomeProps) => {
-  const { projects, aboutMe } = home;
+export const logoIcons = {
+  tailwind: <SiTailwindcss />,
+  javascript: <IoLogoJavascript />,
+  typescript: <SiTypescript />,
+  nextjs: <TbBrandNextjs />,
+  mongodb: <SiMongodb />,
+
+
+
+
+}
+
+const Home = () => {
+  const projects: Project[] = [
+    {
+      slug: 'https://dogs.origamid.dev/',
+      name: 'Dogs API',
+      image: {
+        url: 'https://i.imgur.com/IqnFWOt.png',
+        alt: 'Página Inicial do projeto Dogs',
+      },
+      tech: [logoIcons.javascript],
+    },
+    {
+      slug: 'https://landingpage-eight-brown.vercel.app/',
+      name: 'Landing Page para Cursos',
+      image: {
+        url: 'https://i.imgur.com/Eljyq6f.png',
+        alt: 'Página inicial do projeto Next Dev',
+      },
+      tech: [logoIcons.typescript,logoIcons.nextjs,logoIcons.mongodb,logoIcons.tailwind],
+    },
+    {
+      slug: 'https://ceplacas.vercel.app/',
+      name: 'Site para a Ceplacas',
+      image: {
+        url: 'https://i.imgur.com/jYbtZTL.png',
+        alt: 'Pagina inicial ceplacas',
+      },
+      tech: [logoIcons.typescript,logoIcons.tailwind],
+    },
+    {
+      slug: 'https://spotfly.vercel.app/',
+      name: 'Landing page spotify',
+      image: {
+        url: 'https://i.imgur.com/np6HTz7.png',
+        alt: 'Página inicial do projeto Animais fantásticos',
+      },
+      tech: [logoIcons.tailwind]
+    },
+  ];
 
   return (
     <>
       <Head>
-        <title>Sobre mim | Huriel</title>
-        <meta
-          name="description"
-          content="Sou um desenvolvedor Front-end apaixonado por criar interfaces e ajudar outros devs!"
-        />
+        <title>Sobre mim | Marcelo</title>
+        <meta name="description" content="Desenvolvedor Front-End" />
       </Head>
       <div className="py-12 px-6 md:px-32 space-y-10 md:space-y-28">
-        <AboutMe aboutMe={aboutMe} />
+        <AboutMe />
         <Projects projects={projects} />
       </div>
     </>
   );
 };
-
-const loadHome = async () => {
-  const res = await fetch(
-    'https://gist.githubusercontent.com/huri3l/b2d6a36f169dfe3fcd11a5dac89d83cc/raw/ad2cd1cd3c858ffd6fd70af5c80bb6bf98ee2cdf/home.json',
-  );
-  const home = await res.json();
-
-  return home;
-};
-
-export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-  const home = await loadHome();
-
-  return {
-    props: { home },
-  };
-};
-
 export default Home;

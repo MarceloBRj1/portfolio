@@ -33,4 +33,5 @@ export interface Project {
   slug: string;
   name: string;
   image: Image;
+  tech?: Tech[];
 }

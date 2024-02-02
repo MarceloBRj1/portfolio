@@ -21,7 +21,7 @@ export const Menu = ({ isVisible, onClose }: MenuProps) => {
       >
         <div className="flex justify-between mb-5">
           <Link href="/">
-            <Image src="/favicon.svg" width={55} height={55} alt="Ícone da letra H" />
+            <Image src="/icon.svg" width={55} height={55} alt="Ícone da letra M" />
           </Link>
           <button onClick={onClose}>
             <MenuCloseIcon className="fill-white w-10 h-10" />
@@ -31,7 +31,7 @@ export const Menu = ({ isVisible, onClose }: MenuProps) => {
           <Link href="/" onClick={onClose}>
             Sobre mim
           </Link>
-          {/* <Link href="/portfolio" onClick={onClose}>Portfolio</Link> */}
+          <Link href="/portfolio" onClick={onClose}>Portfolio</Link>
           <Link href="/contatos" onClick={onClose}>
             Entre em contato
           </Link>
