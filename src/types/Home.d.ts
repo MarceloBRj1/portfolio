@@ -34,4 +34,5 @@ export interface Project {
   name: string;
   image: Image;
   tech?: string[];
+  gitlink?: string[];
 }

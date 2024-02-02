@@ -32,6 +32,7 @@ const Header = () => {
        <MenuIcon className='fill-white w-10 h-10' />
       </button>
     <nav className='hidden md:flex items-center gap-10 text-md'>
+      <Link target='_blank' href={'https://github.com/MarceloBRj1'}>GitHub</Link>
       <Link href='/'>Sobre Mim</Link>
       <Link href='/contatos'>Entre em Contato</Link>
     </nav>

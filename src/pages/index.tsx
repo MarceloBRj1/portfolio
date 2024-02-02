@@ -11,6 +11,7 @@ import { SiTypescript } from "react-icons/si";
 
 
 interface Project {
+  gitlink?: string[];
   slug: string;
   name: string;
   image: {
@@ -21,28 +22,15 @@ interface Project {
 }
 
 export const logoIcons = {
-  tailwind: <SiTailwindcss />,
-  javascript: <IoLogoJavascript />,
-  typescript: <SiTypescript />,
-  nextjs: <TbBrandNextjs />,
-  mongodb: <SiMongodb />,
-
-
-
-
+  tailwind: <SiTailwindcss size={18} />,
+  javascript: <IoLogoJavascript size={20} />,
+  typescript: <SiTypescript size={18} />,
+  nextjs: <TbBrandNextjs size={18}/>,
+  mongodb: <SiMongodb size={18}/>,
 }
 
 const Home = () => {
   const projects: Project[] = [
-    {
-      slug: 'https://dogs.origamid.dev/',
-      name: 'Dogs API',
-      image: {
-        url: 'https://i.imgur.com/IqnFWOt.png',
-        alt: 'Página Inicial do projeto Dogs',
-      },
-      tech: [logoIcons.javascript],
-    },
     {
       slug: 'https://landingpage-eight-brown.vercel.app/',
       name: 'Landing Page para Cursos',
@@ -52,9 +40,20 @@ const Home = () => {
       },
       tech: [logoIcons.typescript,logoIcons.nextjs,logoIcons.mongodb,logoIcons.tailwind],
     },
+
+    {
+      slug: 'https://dogs.origamid.dev/',
+      name: 'Dogs API',
+      image: {
+        url: 'https://i.imgur.com/IqnFWOt.png',
+        alt: 'Página Inicial do projeto Dogs',
+      },
+      tech: [logoIcons.javascript],
+    },
+    
     {
       slug: 'https://ceplacas.vercel.app/',
-      name: 'Site para a Ceplacas',
+      name: 'Site para a Ceplacas (em desenvolvimento)',
       image: {
         url: 'https://i.imgur.com/jYbtZTL.png',
         alt: 'Pagina inicial ceplacas',
